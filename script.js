@@ -153,7 +153,7 @@ const showCongrats = function ()
 //function when gave is over
 const gameOver = function () 
 {
-  console.log(playGame.innerHTML);
+  //console.log(playGame.innerHTML);
   restartGame.classList.remove("hidden");
   document.querySelector('.correctWord').innerHTML=word;
   keyboard.disabled=true;
@@ -208,10 +208,10 @@ let showword = function (word)
   for (i=0; i < word.length; i++)
   {
     guess  +=  '_ ';
-    console.log(guess);
+    //console.log(guess);
   
   }
-  console.log(word);
+ // console.log(word);
   correctGuesses.innerHTML = guess;
   correctGuesses.classList.add('bold');
   arrguess= guess.split(" ");
@@ -221,6 +221,6 @@ let showword = function (word)
 level.forEach(function (element) {
   // console.log(element);
   element.addEventListener("click", generateWord.bind(null,element));
-  console.log(element.innerHTML);
+ // console.log(element.innerHTML);
 });
 
