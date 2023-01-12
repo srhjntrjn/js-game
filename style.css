@@ -143,7 +143,7 @@ p {
 .modal img{
   vertical-align: middle;
 }
-.startGame, .restartGame ,.play, .playAgain , .restart{
+.startGame, .restartGame ,.play, .playGame , .restart{
 background-color:lightskyblue ;
   margin: auto;
   margin-top: 10px;
@@ -159,7 +159,7 @@ background-color:lightskyblue ;
 .modalGOver .tipText, .gameOver{
 margin: auto;
 }
-.restart:hover, .restartGame:hover,.play:hover, .playAgain:hover, .startGame:hover{
+.restart:hover, .restartGame:hover,.play:hover, .playGame:hover, .startGame:hover{
   background-color: greenyellow;
   display: flex; align-items: center; justify-content: center
 }
@@ -190,7 +190,7 @@ background-color: greenyellow;
   margin: 6px;
   border-color: black;
 }
-#keyboar:disabled, #keyboard button:disabled, .btnLevel button:disabled{
+#keyboar:disabled, #keyboard button:disabled, .btnLevel button:disabled, .btn button:disabled{
   pointer-events: none;
 }
 
@@ -245,7 +245,7 @@ margin: 0;
 
 
 @media only screen and (max-width: 425px) {
-  .startGame, .restartGame ,.play, .playAgain , .restart{
+  .startGame, .restartGame ,.play, .playGame , .restart{
     margin: auto;
     margin-top: 10px;
    border-radius: 10px;

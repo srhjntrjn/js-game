@@ -10,7 +10,8 @@ const startGame = document.querySelector(".modal .startGame");
 const overlay = document.getElementById("overlay");
 const GOshow = document.querySelector(".gameOver .tipText strong");
 const onGame = document.querySelector(".onGame");
-const playAgain= document.querySelector(".playAgain");
+//const playUlit= document.querySelector(".gameOver button");
+const playGame =document.querySelector(".playGame");
 const play= document.querySelector(".play");
 const showModalReset = document.querySelector(".showModalReset");
 const restartGame= document.querySelector(".gameOver");
@@ -30,14 +31,15 @@ const reloadConfirmation = function () {
       location.reload();
     } 
 }
-playAgain.addEventListener("click", reloadme);
+playGame.addEventListener("click", reloadme);
 play.addEventListener("click", reloadme);
 showModalReset.addEventListener("click", reloadConfirmation);
 
 
 
+
 arrguess= guess.split(" ");
-console.log(arrguess);
+//console.log(arrguess);
 
 //function showing tip 
 const showModal = function () {
@@ -54,7 +56,7 @@ const hard=['CONTENT','RECURSION','GITLAB','TERMINAL'];
 
 ///function clicking  x
 const closeModal = function () {
-  console.log("hidden");
+ // console.log("hidden");
   modal.classList.add("hidden");
 
 };
@@ -90,25 +92,25 @@ startGame.addEventListener("click", startgame);
 
 //function when alphabet button is click. and verifying if the letter has the same value to word
 function guessclick(element){
-  console.log(arrguess);
+  //console.log(arrguess);
   guesses.push(element)
-  console.log(guesses);
-  console.log(element);
+//  console.log(guesses);
+//  console.log(element);
   misstake += 1;
   btnalp=document.getElementById(`${element}`);
   let index=word.indexOf(element);
-  console.log(index);
+ // console.log(index);
       if(index!==-1)
       {
-        console.log(word);
+    //    console.log(word);
         for (i=0; i < word.length; i++)
         {
-            console.log(word[i]);
+          //  console.log(word[i]);
             if (word[i] == element )
             {   
               arrguess[i] = element;
-              console.log(arrguess);
-              console.log(`The array contains letter ${element}`);
+            //  console.log(arrguess);
+           //   console.log(`The array contains letter ${element}`);
               btnalp.style.backgroundImage = "url('image/right.svg')";
               btnalp.style.backgroundRepeat = "no-repeat";
             }
@@ -121,18 +123,18 @@ function guessclick(element){
        btnalp.style.backgroundRepeat = "no-repeat";
        hangman.style.backgroundImage = `url("image/hangman${misstake}.svg")`;
        hangman.style.backgroundRepeat = "no-repeat";
-       console.log(`The array doesn't contain letter ${element}`);
+      // console.log(`The array doesn't contain letter ${element}`);
       }
     btnalp.style.backgroundSize = "90% 100%";
     btnalp.disabled=true;
-    console.log(arrguess.join(' '));
+   // console.log(arrguess.join(' '));
     correctGuesses.innerHTML = arrguess.join(' ');
     if (arrguess.join('')=== word){
       showCongrats();
     }
     correctGuesses.classList.add('bold');
     if (misstake>=11){
-      console.log('game over');
+  //    console.log('game over');
       gameOver();
     }
 
@@ -144,17 +146,26 @@ function guessclick(element){
 //function when they win
 const showCongrats = function () 
 {
-  console.log("hidden");
+ // console.log("hidden");
   modalCongrats.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 //function when gave is over
 const gameOver = function () 
 {
+  console.log(playGame.innerHTML);
   restartGame.classList.remove("hidden");
   document.querySelector('.correctWord').innerHTML=word;
   keyboard.disabled=true;
   overlay.classList.add("hidden");
+  let btnbut = document.querySelectorAll('.btn button');
+    btnbut.forEach(function (element) {
+    element.disabled=true;
+  });
+  let letkey = document.querySelectorAll('#keyboard button');
+  letkey.forEach(function (element) {
+    element.disabled=true;
+  });
 };
 
 //generating word by level
